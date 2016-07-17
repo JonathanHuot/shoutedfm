@@ -2,3 +2,4 @@ beautifulsoup4==4.4.1
 requests==2.9.1
 simplejson==3.8.2
 wheel==0.26.0
+pytz==2016.6.1

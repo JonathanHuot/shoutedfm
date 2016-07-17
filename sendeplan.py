@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from datetime import datetime
 from datetime import timedelta
+from pytz import timezone
 import simplejson as json
 import requests
 import re
@@ -82,7 +83,7 @@ def fetch(url, **kwargs):
 
 
 def datetime_from_event(event):
-    eventdate = datetime.now().replace(hour=int(event["start_time"].split(':')[0]), minute=int(event["start_time"].split(':')[1]))
+    eventdate = datetime.now().replace(hour=int(event["start_time"].split(':')[0]), minute=int(event["start_time"].split(':')[1]), second=0, microsecond=0, tzinfo=timezone("Europe/Berlin"))
     eventdate += timedelta(days=eventdate.weekday() - event["weekday"])
     return eventdate
 
